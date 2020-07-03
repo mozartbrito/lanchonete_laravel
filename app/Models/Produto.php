@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produto extends Model
 {
-    protected $fillable = [ 'nome', 'preco', 'qtd', 'descricao' ];
+    protected $fillable = [ 'nome', 'preco', 'qtd', 'descricao', 'categoria_id' ];
 
 
     public function getPrecoAttribute($value)
@@ -18,5 +18,9 @@ class Produto extends Model
         $value = str_replace('.', '', $value);
         $value = str_replace(',', '.', $value);
         $this->attributes['preco'] = $value;
+    }
+    public function categoria()
+    {
+        return $this->hasOne(Categoria::class, 'id', 'categoria_id');   
     }
 }

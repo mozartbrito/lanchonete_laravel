@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row" style="margin-top:40px">
     <div class="col-6">
-        <h2>Gerenciar produtos <span class="badge badge-info">{{ $produtos->total() }}</span></h2>
+        <h2>Gerenciar categorias <span class="badge badge-info">{{ $categorias->total() }}</span></h2>
     </div>
     <div class="col-4">
     <form class="form-inline my-2 my-lg-0">
@@ -12,13 +12,13 @@
       <button class="btn btn-success my-2 my-sm-0" type="submit">
         <i class="fas fa-search"></i>   
       </button>
-      <a href="produtos" class="btn btn-warning my-2 my-sm-0">
+      <a href="categorias" class="btn btn-warning my-2 my-sm-0">
         <i class="fas fa-trash-alt"></i>
       </a>
     </form>
     </div>
     <div class="col-2">
-        <a href="{{ route('produtos.add') }}" class="btn btn-success">Novo</a>
+        <a href="{{ route('categorias.add') }}" class="btn btn-success">Nova</a>
     </div>
 </div>
     <div class="row justify-content-center">
@@ -39,28 +39,22 @@
                     <table class="table table-hover table-bordered table-striped table-responsive-lg">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Nome</th>
-                                <th>Preço</th>
-                                <th>Categoria</th>
-                                <th>Quantidade</th>
-                                <th>Descrição</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($produtos as $produto)
+                            @foreach($categorias as $categoria)
                             <tr>
-                                <td>{{ $produto->nome }}</td>
-                                <td>R$ {{ $produto->preco }}</td>
-                                <td>{{ $produto->categoria->nome }}</td>
-                                <td>{{ $produto->qtd }}</td>
-                                <td>{{ substr($produto->descricao, 0, 50) }}...</td>
+                                <td>{{ $categoria->id }}</td>
+                                <td>{{ $categoria->nome }}</td>
                                 <td>
-                                    <a href="{{ route('produtos.edit', $produto->id) }}" class="btn btn-warning" data-toggle="tooltip" title="Exibir/Editar produto">
+                                    <a href="{{ route('categorias.edit', $categoria->id) }}" class="btn btn-warning" data-toggle="tooltip" title="Exibir/Editar categoria">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     &nbsp;
-                                    <a href="{{ route('produtos.delete', $produto->id) }}" class="btn btn-danger" data-toggle="tooltip" title="Deletar produto" onclick="return confirm('Deseja realmente excluir?')">
+                                    <a href="{{ route('categorias.delete', $categoria->id) }}" class="btn btn-danger" data-toggle="tooltip" title="Deletar categoria" onclick="return confirm('Deseja realmente excluir?')">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -68,8 +62,11 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @if($categorias->total() < 1)
+                        <div class="alert alert-info">Nenhum item encontrado</div>
+                    @endif
 
-                    {{ $produtos->links() }}
+                    {{ $categorias->links() }}
                 </div>
             </div>
         </div>

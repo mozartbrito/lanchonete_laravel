@@ -7,6 +7,10 @@
     {{ Form::text('preco', null, ['class'=>'form-control', 'required'=> 'true']) }}
 </div>
 <div class="form-group">
+	<label for="categoria_id">Categoria:</label>
+	{!! Form::select('categoria_id', $categorias,null, ['class'=> 'form-control', 'placeholder'=> 'Escolha']) !!}
+</div>
+<div class="form-group">
     <label for="qtd">Quantidade:</label>
     {{ Form::number('qtd', null, ['class'=>'form-control']) }}
 </div>

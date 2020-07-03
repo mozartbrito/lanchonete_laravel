@@ -14,10 +14,10 @@
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="administrativa.php">Início <span class="sr-only">(página atual)</span></a>
+        <a class="nav-link" href="administrativa">Início <span class="sr-only">(página atual)</span></a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link" href="vendas.php" id="navbarDropdown" role="button" >
+        <a class="nav-link" href="vendas" id="navbarDropdown" role="button" >
           Vendas
         </a>
       </li>
@@ -27,12 +27,12 @@
         </a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link " href="categorias.php" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link " href="{{ route('categorias') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
           Categorias
         </a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link " href="clientes.php" role="button" >
+        <a class="nav-link " href="clientes" role="button" >
           Clientes
         </a>
       </li>
@@ -41,9 +41,9 @@
           Usuários
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="usuarios.php">Listar Usuários</a>
-            <a class="dropdown-item" href="perfis.php">Listar Perfis</a>
-          <a class="dropdown-item" href="controles.php">Listar Controles</a>
+          <a class="dropdown-item" href="usuarios">Listar Usuários</a>
+            <a class="dropdown-item" href="perfis">Listar Perfis</a>
+          <a class="dropdown-item" href="controles">Listar Controles</a>
         </div>
 
       </li>

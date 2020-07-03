@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\Categoria;
 
 class ProdutoController extends Controller
 {
@@ -23,7 +24,8 @@ class ProdutoController extends Controller
     }
     public function add()
     {
-        return view('produtos.add');
+        $categorias = Categoria::pluck('nome', 'id');
+        return view('produtos.add', compact('categorias'));
     }
     public function store(Request $request)
     {
@@ -32,8 +34,9 @@ class ProdutoController extends Controller
     } 
     public function edit($id)
     {
+        $categorias = Categoria::pluck('nome', 'id');
         $produto = Produto::find($id);
-        return view('produtos.edit', compact('produto'));
+        return view('produtos.edit', compact('produto', 'categorias'));
     }
     public function update(Request $request, $id)
     {
